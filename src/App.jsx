@@ -39,13 +39,14 @@ function App() {
   };
 
   return (
-    <div style={styles.container}>
+    <div >
       
-      <h1 style={styles.header}>📄 Smart PDF Viewer</h1>
+      <h1 >📄 Smart PDF Viewer</h1>
 
 
-      <div style={styles.uploadBox}>
+      <div >
         <input
+          className="cursor-pointer"
           type="file"
           accept="application/pdf"
           onChange={(e) => {
@@ -196,73 +197,3 @@ export default App;
 
 
 
-const styles = {
-  container: {
-    minHeight: "100vh",
-    background: "#f4f6f8",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "20px",
-  },
-
-  header: {
-    marginBottom: "20px",
-    color: "#333",
-  },
-
-  uploadBox: {
-    background: "#fff",
-    padding: "15px 20px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-    marginBottom: "20px",
-  },
-
-  viewer: {
-    width: "100%",
-    maxWidth: "900px",
-    height: "80vh",
-    overflow: "auto",
-    background: "#eaeaea",
-    borderRadius: "10px",
-    padding: "20px",
-    boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-  },
-
-  pageWrapper: {
-    display: "flex",
-    justifyContent: "center",
-  },
-
-  controls: {
-    marginTop: "20px",
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-  },
-
-  button: {
-    padding: "8px 14px",
-    borderRadius: "6px",
-    border: "none",
-    background: "#4a90e2",
-    color: "#fff",
-    cursor: "pointer",
-    fontWeight: "500",
-  },
-
-  pageInfo: {
-    fontWeight: "bold",
-  },
-
-  selectionBox: {
-    marginTop: "20px",
-    background: "#fff3cd",
-    padding: "12px",
-    borderRadius: "8px",
-    maxWidth: "900px",
-    width: "100%",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-  },
-};
