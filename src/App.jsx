@@ -46,7 +46,7 @@ function App() {
 
       <div >
         <input
-          className="cursor-pointer"
+          className="cursor-pointer border-2"
           type="file"
           accept="application/pdf"
           onChange={(e) => {
