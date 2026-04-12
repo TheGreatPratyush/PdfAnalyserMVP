@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
-
+// Worker setup (Vite)
 import worker from "pdfjs-dist/build/pdf.worker.min?url";
 pdfjs.GlobalWorkerOptions.workerSrc = worker;
 
@@ -13,25 +13,15 @@ function App() {
 
   const pdfRef = useRef(null);
 
-
   const handleSelection = () => {
-    // window.getSelection() with the help of this you get all the selected text on the ui 
     const selection = window.getSelection();
-    // selection is a complex obejct having lot of thigns inside this obejct we only need the text selected text so using to string gives only the text 
-    // console.log(selection)
     const text = selection.toString().trim();
 
     if (!text) return;
 
-    // now since user can select anything inside the ui bt we only need the text inside the pdf
-
-
     const isInside =
-    // selection.anchorNode point from where selction started 
       pdfRef.current?.contains(selection.anchorNode) &&
-    // selection.focusNode point till where selection happens 
       pdfRef.current?.contains(selection.focusNode);
-    // and because these both must be inside the pdf
 
     if (!isInside) return;
 
@@ -39,22 +29,14 @@ function App() {
   };
 
   return (
-    <div >
-      
-      <h1 >📄 Smart PDF Viewer</h1>
+    <div>
+      <h1>📄 Smart PDF Viewer</h1>
 
-
-      <div >
+      <div>
         <input
-          className="cursor-pointer border-2"
           type="file"
           accept="application/pdf"
           onChange={(e) => {
-          // console.log(e)
-          // e is a object containing everythign about the event
-          // e.target gives the input which is trigerred 
-          // e.target.files[0]-> it has list of files user selected since user may select multiple i am saying provide me first selected file 
-
             const f = e.target.files[0];
             if (f) {
               setFile(f);
@@ -65,19 +47,14 @@ function App() {
         />
       </div>
 
-      {/* if there is any selectd file then move to next things else this part remains false  */}
       {file && (
         <>
-          <div
-            ref={pdfRef}
-            onMouseUp={handleSelection}
-            style={styles.viewer}
-          >
+          <div ref={pdfRef} onMouseUp={handleSelection}>
             <Document
               file={file}
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             >
-              <div style={styles.pageWrapper}>
+              <div>
                 <Page
                   pageNumber={pageNumber}
                   width={800}
@@ -88,32 +65,28 @@ function App() {
             </Document>
           </div>
 
-
-          <div style={styles.controls}>
+          <div>
             <button
               onClick={() => setPageNumber((p) => p - 1)}
               disabled={pageNumber <= 1}
-              style={styles.button}
             >
               ⬅ Prev
             </button>
 
-            <span style={styles.pageInfo}>
+            <span>
               Page {pageNumber} / {numPages}
             </span>
 
             <button
               onClick={() => setPageNumber((p) => p + 1)}
               disabled={pageNumber >= numPages}
-              style={styles.button}
             >
               Next ➡
             </button>
           </div>
 
-
           {selectedText && (
-            <div style={styles.selectionBox}>
+            <div>
               <strong>Selected:</strong> {selectedText}
             </div>
           )}
@@ -124,76 +97,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
