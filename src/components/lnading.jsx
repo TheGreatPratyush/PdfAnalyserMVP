@@ -34,11 +34,11 @@ function Landing() {
         <div className="relative min-h-screen w-full bg-gradient-to-br from-orange-200 to-orange-500 flex flex-col items-center">
 
             <div className="w-full max-w-5xl px-4 space-y-6">
-                <div className="absolute grid justify-center mt-37 ml-150 border-t-4 border-l-4 border-b-1 border-r-1 p-2 ">
+                <div className="absolute grid justify-center mt-40.5 ml-150 border-t-4 border-l-4 border-b-1 border-r-1 p-2 ">
                 < MakrImp />
                 </div>
                 <div className="text-center py-6">
-                    <h1 className="text-black text-4xl font-bold tracking-tight">
+                    <h1 className="text-black text-4xl mt-5 font-bold tracking-tight">
                         Smart PDF Viewer
                     </h1>
                     <p className="text-gray-700 mt-2">
